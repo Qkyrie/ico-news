@@ -1,1 +1,5 @@
 **/node_modules
+**/WEB-INF/static/*
+.idea
+.gradle
+build/
