@@ -1,0 +1,30 @@
+buildscript {
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+allprojects {
+    group = 'io.iconews'
+}
+
+subprojects {
+    group= 'io.iconews'
+    apply plugin: 'maven'
+
+    task createPom  {
+        pom {
+            project {
+            }
+        }.writeTo("$buildDir/${project.name}-${project.version}.pom")
+    }
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
