@@ -1,8 +1,8 @@
 {
   "name": "ico-news",
   "title": "Ico News",
-  "version": "3.3.7",
-  "homepage": "http://startbootstrap.com/template-overviews/new-age",
+  "version": "1.0.0",
+  "homepage": "https://fundrequest.io",
   "author": "Quinten De Swaef",
   "license": {
     "type": "MIT",
@@ -18,13 +18,11 @@
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.4",
-    "jquery": "^1.11.3"
+    "glyphicons-halflings": "^1.9.0",
+    "simple-line-icons": "^2.3.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Qkyrie/ico-news"
-  },
-  "dependencies": {
-    "simple-line-icons": "^2.3.2"
   }
 }
