@@ -1,26 +1,5 @@
 'use strict';
 
-/*
- * de Persgroep Frontend gulfile
- *
- * Commands:
- * gulp default
- * "copy" images
- * "copy" fonts
- * js: eslint
- * css: scss-lint
- * WATCH FILES ABOVE
- * gulp deploy
- * "copy" images
- * "copy" fonts
- * js: eslint
- * css: scss-lint
- * Flags:
- * --imagemin=true|false: Null, empty or not true ==> no imagemin (default)
- * --sassoutput=<value>: Null, empty or not one of ['nested', 'expanded', 'compact', 'compressed'] ==> expanded (default)
- * --sourcemaps=true|false: Null, empty or not true ==> sourcemaps (default)
- */
-
 /* do NOT change the order of the pipes as this could cause unwanted effects */
 var pkg = require('./package.json'),
 	del = require('del'),
