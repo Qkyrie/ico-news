@@ -34,10 +34,6 @@ function onError(err) {
 	this.emit('end');
 }
 
-function getArgument(key) {
-	return gUtil.env[key] ? gUtil.env[key] : null;
-}
-
 // clean folders
 gulp.task('clean', function() {
 	pkg.clean.forEach(function(path) {
@@ -94,7 +90,7 @@ gulp.task('fontbuild', function() {
 });
 
 // copy src html to static
-gulp.task('buildhtml', ['clean'], function() {
+gulp.task('htmlbuild', ['clean'], function() {
 	return gulp.src('html/*.html')
 		.pipe(gulp.dest('../WEB-INF/static/html/'))
 		.pipe(notify({
@@ -112,6 +108,7 @@ gulp.task('htmllint', function() {
 // build all task
 gulp.task('build', ['clean'], function() {
 	// pay attention when upgrading gulp: https://github.com/gulpjs/gulp/issues/505#issuecomment-45379280
+	gulp.start('htmlbuild');
 	gulp.start('imgbuild');
 	gulp.start('fontbuild');
 	gulp.start('jsbuild');
@@ -121,6 +118,7 @@ gulp.task('build', ['clean'], function() {
 // default task
 gulp.task('default', ['clean'], function() {
 	// pay attention when upgrading gulp: https://github.com/gulpjs/gulp/issues/505#issuecomment-45379280
+	gulp.start('htmlbuild');
 	gulp.start('imgbuild');
 	gulp.start('fontsbuild');
 	gulp.start('js');
@@ -136,6 +134,7 @@ gulp.task('default', ['clean'], function() {
 // deploy task
 gulp.task('deploy', function() {
 	// pay attention when upgrading gulp: https://github.com/gulpjs/gulp/issues/505#issuecomment-45379280
+	gulp.start('htmlbuild');
 	gulp.start('imgbuild');
 	gulp.start('fontsbuild');
 	gulp.start('jsbuild');
