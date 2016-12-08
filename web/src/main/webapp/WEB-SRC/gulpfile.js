@@ -24,7 +24,8 @@ var paths = {
    scripts: ["node_modules/bootstrap/dist/js/bootstrap.min.js"],
    css: ["node_modules/bootstrap/dist/css/bootstrap.min.css"],
    img: ["img/*"],
-   fonts: ["node_modules/bootstrap/dist/fonts/*"]
+   fonts: ["node_modules/bootstrap/dist/fonts/*"],
+	html: ["html/**/*.html"]
   };
 
 // helper functions
@@ -56,7 +57,7 @@ gulp.task('imgbuild', function() {
 
 // Javascript
 gulp.task('eslint', function() {
-	return gulp.src(pkg.js.hint.src)
+	return gulp.src(paths.scripts)
 		.pipe(plumber({
 			'errorHandler': onError
 		}))
@@ -91,8 +92,8 @@ gulp.task('fontbuild', function() {
 
 // copy src html to static
 gulp.task('htmlbuild', ['clean'], function() {
-	return gulp.src('html/*.html')
-		.pipe(gulp.dest('../WEB-INF/static/html/'))
+	return gulp.src(paths.html)
+		.pipe(gulp.dest('../WEB-INF/templates/'))
 		.pipe(notify({
 			'message': 'HTML: build complete',
 			'onLast': true // otherwise the notify will be fired for each file in the pipe
@@ -120,15 +121,14 @@ gulp.task('default', ['clean'], function() {
 	// pay attention when upgrading gulp: https://github.com/gulpjs/gulp/issues/505#issuecomment-45379280
 	gulp.start('htmlbuild');
 	gulp.start('imgbuild');
-	gulp.start('fontsbuild');
+	gulp.start('fontbuild');
 	gulp.start('js');
-	gulp.start('sass');
 
 	// watch
-	gulp.watch(pkg.img.watch, ['imgbuild']);
-	gulp.watch(pkg.fonts.watch, ['fontsbuild']);
-	gulp.watch(pkg.js.watch, ['js']);
-	gulp.watch(pkg.sass.watch, ['sass']);
+	gulp.watch(paths.img, ['imgbuild']);
+	gulp.watch(paths.html, ['imgbuild']);
+	gulp.watch(paths.fonts, ['fontbuild']);
+	gulp.watch(paths.scripts, ['js']);
 });
 
 // deploy task
@@ -136,7 +136,6 @@ gulp.task('deploy', function() {
 	// pay attention when upgrading gulp: https://github.com/gulpjs/gulp/issues/505#issuecomment-45379280
 	gulp.start('htmlbuild');
 	gulp.start('imgbuild');
-	gulp.start('fontsbuild');
+	gulp.start('fontbuild');
 	gulp.start('jsbuild');
-	gulp.start('sassbuild');
 });
