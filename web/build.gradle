@@ -5,6 +5,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'docker'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -35,3 +36,32 @@ node {
     download = true
     nodeModulesDir = file("${project.projectDir}/src/main/webapp/WEB-SRC")
 }
+
+bootRun {
+    systemProperties System.properties
+    addResources = true
+}
+
+springBoot {
+    executable = true
+}
+
+jar {
+    baseName = 'ico-news'
+    version = null
+}
+
+task buildDocker(type: Docker, dependsOn: build) {
+    push = false
+    applicationName = 'ico-news'
+    tagVersion = 'latest'
+    project.group = 'qkyrie'
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+}
+
