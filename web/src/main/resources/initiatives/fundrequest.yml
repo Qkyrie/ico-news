@@ -1,0 +1,12 @@
+info:
+  name: FundRequest
+  links:
+    website: https://fundrequest.io
+    facebook: https://facebook.com/fundrequest
+    twitter: https://twitter.com/fundrequest_io
+    slack: https://fundrequest.slack.com
+    reddit: TBD
+    medium: TBD
+  distribution:
+    total_supplies: 2000000
+  token: FND
