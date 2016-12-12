@@ -1,0 +1,46 @@
+{
+  "name": "ico-news",
+  "version": "1.0.0",
+  "description": "Ico News",
+  "main": "gulpfile.js",
+  "author": "Quinten De Swaef",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qkyrie/ico-news"
+  },
+  "clean": [
+    "../static/"
+  ],
+  "devDependencies": {
+    "del": "^1.1.1",
+    "eslint": "^1.5.1",
+    "file-exists": "^1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-bless": "^3.0.1",
+    "gulp-cached": "^1.0.4",
+    "gulp-concat": "^2.5.2",
+    "gulp-copy": "^0.0.2",
+    "gulp-eslint": "^1.1.0",
+    "gulp-htmllint": "^0.0.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-scss-lint": "^0.3.8",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.4",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.15",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "jasmine-jquery": "^2.1.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.19"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "modernizr": "^3.3.1"
+  }
+}

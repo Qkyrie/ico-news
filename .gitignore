@@ -1,6 +1,5 @@
 **/node_modules
-**/WEB-INF/static/*
-**/WEB-INF/templates/*
+**/resources/static/*
 .idea
 .gradle
 build/
