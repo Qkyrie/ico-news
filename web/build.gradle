@@ -28,13 +28,13 @@ installGulp.dependsOn 'npmInstall'
 gulp {
     colors = true
     bufferOutput = false
-    workDir = file("${project.projectDir}/src/main/webapp/WEB-SRC")
+    workDir = file("${project.projectDir}/src/main/resources/WEB-SRC")
 }
 
 node {
     version = '4.2.2'
     download = true
-    nodeModulesDir = file("${project.projectDir}/src/main/webapp/WEB-SRC")
+    nodeModulesDir = file("${project.projectDir}/src/main/resources/WEB-SRC")
 }
 
 bootRun {
@@ -64,4 +64,3 @@ task buildDocker(type: Docker, dependsOn: build) {
         }
     }
 }
-
