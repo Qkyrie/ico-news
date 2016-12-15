@@ -3,3 +3,5 @@
 .gradle
 build/
 .DS_Store
+classes/
+.DS_Store
